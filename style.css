@@ -51,34 +51,64 @@
   --f-body:    'Nunito', sans-serif;
 }
 
-/* ── DARK MODE (Midnight Glass) ── */
-[data-theme="dark"] {
-  --blue:        #60a5fa;
-  --blue-light:  #3b82f6;
-  --indigo:      #818cf8;
-  --bg:          #0f172a;
-  --glass:       rgba(30, 41, 59, 0.7);
-  --glass-s:     rgba(30, 41, 59, 0.85);
-  --border:      rgba(255, 255, 255, 0.1);
-  --shadow:      0 8px 32px rgba(0, 0, 0, 0.5);
+/* ── PREMIUM DARK MODE (Midnight AMOLED) ── */
+html[data-theme="dark"] {
+  /* Deep space core colors */
+  --blue:        #3b82f6;
+  --blue-light:  #60a5fa;
+  --indigo:      #8b5cf6;
+  --green:       #10b981;
+  --red:         #f43f5e;
+  --gold:        #fbbf24;
+
+  /* Crisp, bright UI Text */
   --txt:         #f8fafc;
   --txt-mid:     #cbd5e1;
   --txt-light:   #94a3b8;
+
+  /* Sleek Dark Glassmorphism */
+  --glass:       rgba(15, 23, 42, 0.75);
+  --glass-s:     rgba(15, 23, 42, 0.95);
+  --border:      rgba(255, 255, 255, 0.08);
+  --shadow:      0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-deep: 0 16px 48px rgba(0, 0, 0, 0.8);
 }
 
-[data-theme="dark"] body { background: linear-gradient(145deg, #020617 0%, #0f172a 45%, #1e293b 100%); }
-[data-theme="dark"] .bg-blob.blob-1 { background: radial-gradient(circle, #312e81, transparent 70%); }
-[data-theme="dark"] .bg-blob.blob-2 { background: radial-gradient(circle, #1e3a8a, transparent 70%); }
-[data-theme="dark"] .bg-blob.blob-3 { background: radial-gradient(circle, #064e3b, transparent 70%); }
+/* Force the background to pure dark */
+html[data-theme="dark"] body { 
+  background: linear-gradient(145deg, #020617 0%, #0a0f1d 50%, #0f172a 100%) !important; 
+}
 
-[data-theme="dark"] .canvas-wrap { background: #ffffff; } 
-[data-theme="dark"] .toolbar-glass { background: rgba(30, 41, 59, 0.9) !important; }
-[data-theme="dark"] .toolbar-glass .tool-btn { background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(255,255,255,0.1); }
-[data-theme="dark"] .toolbar-glass .tool-btn.active { background: linear-gradient(135deg, var(--blue), var(--indigo)); color: #fff; border-color: transparent; }
-[data-theme="dark"] .name-input, [data-theme="dark"] .setting-sel, [data-theme="dark"] .chat-form { background: rgba(15, 23, 42, 0.6); color: #fff; }
-[data-theme="dark"] .chat-input { color: #fff; }
-[data-theme="dark"] .player-item { background: rgba(30, 41, 59, 0.6); border-color: rgba(255,255,255,0.05); }
+/* Subtle Neon Blobs */
+html[data-theme="dark"] .bg-blob.blob-1 { background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%) !important; }
+html[data-theme="dark"] .bg-blob.blob-2 { background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%) !important; }
+html[data-theme="dark"] .bg-blob.blob-3 { background: radial-gradient(circle, rgba(16,185,129,0.1), transparent 70%) !important; }
 
+/* Keep Canvas White for Drawing */
+html[data-theme="dark"] .canvas-wrap { background: #ffffff !important; } 
+
+/* Toolbar & Icons (High Contrast) */
+html[data-theme="dark"] .toolbar-glass { background: rgba(15, 23, 42, 0.85) !important; border-color: rgba(255,255,255,0.1) !important; }
+html[data-theme="dark"] .toolbar-glass .tool-btn { background: rgba(30, 41, 59, 0.8) !important; color: #cbd5e1 !important; border-color: rgba(255,255,255,0.05) !important; box-shadow: none !important; }
+html[data-theme="dark"] .toolbar-glass .tool-btn:hover { background: rgba(51, 65, 85, 0.9) !important; color: #ffffff !important; }
+html[data-theme="dark"] .toolbar-glass .tool-btn.active { background: linear-gradient(135deg, var(--blue), var(--indigo)) !important; color: #ffffff !important; border-color: transparent !important; }
+html[data-theme="dark"] .toolbar-glass .tool-btn.danger { background: rgba(244, 63, 94, 0.15) !important; color: #f43f5e !important; }
+html[data-theme="dark"] .toolbar-glass .tool-btn.danger:hover { background: #f43f5e !important; color: #ffffff !important; }
+html[data-theme="dark"] .tool-divider { background: rgba(255,255,255,0.1) !important; }
+
+/* Menus, Inputs & Chat Overrides */
+html[data-theme="dark"] .player-item { background: rgba(30, 41, 59, 0.6) !important; border-color: rgba(255,255,255,0.05) !important; }
+html[data-theme="dark"] .player-item:hover { background: rgba(51, 65, 85, 0.8) !important; }
+html[data-theme="dark"] .pi-name { color: #f8fafc !important; }
+html[data-theme="dark"] .chat-msg.normal { background: rgba(30, 41, 59, 0.8) !important; color: #e2e8f0 !important; }
+html[data-theme="dark"] .chat-msg.correct { background: rgba(16, 185, 129, 0.15) !important; border-color: rgba(16, 185, 129, 0.3) !important; color: #34d399 !important; }
+html[data-theme="dark"] .chat-form { background: rgba(15, 23, 42, 0.85) !important; border-color: rgba(255,255,255,0.1) !important; }
+html[data-theme="dark"] .chat-input { color: #f8fafc !important; }
+html[data-theme="dark"] .name-input, html[data-theme="dark"] .setting-sel { background: rgba(15, 23, 42, 0.6) !important; color: #ffffff !important; border-color: rgba(255,255,255,0.1) !important; }
+html[data-theme="dark"] .context-menu { background: rgba(15, 23, 42, 0.95) !important; border-color: rgba(255,255,255,0.1) !important; }
+html[data-theme="dark"] .ctx-btn { color: #cbd5e1 !important; }
+html[data-theme="dark"] .ctx-btn:hover { background: rgba(255,255,255,0.05) !important; color: #ffffff !important; }
+html[data-theme="dark"] .panel-title, html[data-theme="dark"] .word-meta { color: #94a3b8 !important; }
 html, body {
   width: 100%; height: 100%;
 html, body {
